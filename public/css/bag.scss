@@ -1,0 +1,221 @@
+/* Variables */
+$main-color: #30d234;
+$background-color: #f3f0c7;
+$footer-color: #333;
+$hover-color: $main-color;
+$font-family: Arial, sans-serif;
+$font-size-base: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 24px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    line-height: 1.6;
+    font-size: $font-size-base;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main Content Wrapper */
+.main-content {
+    flex: 1;
+}
+
+/* Header */
+.header {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 0 20px;
+        background-color: #4a4646;
+        border-bottom: 2px solid gray;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+
+    &__logo {
+        height: 40px;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+
+/* Main Navigation */
+.main-nav {
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+        background-color: $background-color;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        bottom: 0;
+        z-index: 998;
+        transform: translateX(-100%);
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    &__link {
+        display: block;
+        font-size: $font-size-large;
+        font-weight: bold;
+        color: #000;
+        text-decoration: none;
+        padding: 10px 20px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: $hover-color;
+        }
+    }
+
+    &.active {
+        transform: translateX(0);
+    }
+}
+
+/* Content */
+.content {
+    &__container {
+        margin-top: 80px;
+        padding: 0 20px;
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+    }
+
+    &__col {
+        flex: 1;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Footer */
+.footer {
+    &__container {
+        background-color: $footer-color;
+        padding: 30px 20px;
+        color: #fff;
+    }
+
+    &__title {
+        font-size: $font-size-xlarge;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        display: block;
+        font-size: $font-size-large;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+
+        &:hover {
+            color: $hover-color;
+        }
+    }
+
+    &__text {
+        font-size: $font-size-base;
+    }
+
+    &__social {
+        &-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        &-link {
+            display: inline-block;
+            font-size: $font-size-xlarge;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: $hover-color;
+            }
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .header {
+        &__container {
+            height: 50px;
+            padding: 0 10px;
+        }
+        &__logo {
+            height: 30px;
+        }
+    }
+
+    .footer {
+        &__container {
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        &__col {
+            padding: 0 5px;
+            margin-bottom: 10px;
+        }
+
+        &__card {
+            img {
+                height: 150px;
+            }
+
+            &-body {
+                padding: 10px;
+            }
+
+            &-title {
+                font-size: $font-size-large;
+            }
+
+            &-text {
+                font-size: $font-size-base;
+            }
+
+            &-price {
+                font-size: $font-size-base;
+            }
+
+            &-btn {
+                font-size: $font-size-base;
+                padding: 5px 10px;
+            }
+        }
+    }
+}
